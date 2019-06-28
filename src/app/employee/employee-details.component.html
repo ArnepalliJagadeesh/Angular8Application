@@ -1,0 +1,64 @@
+<p>
+  employee-details works!
+</p>
+
+<p>
+  {{UserName}}
+</p>
+
+<div *ngIf="UserName == 'Jagadeesh'">Product Details</div>
+
+<div>{{ProductData.Id}},{{ProductData.ProductName}} </div>
+
+<div *ngFor="let a of LstNames">
+  <span *ngIf='a !="Yogi" && a !="Hari" '> {{ a }}</span>  
+</div>
+
+<div class="container">
+<!-- Id] ,[ProductName] ,[SupplierId] ,[UnitPrice] ,[Package] ,[IsDiscontinued -->
+<div class="row">
+  <div class="col-lg-4">
+      <div class="form-group">
+          <label for="ID">ID:</label>
+          <input type="text" class="form-control" id="ID" [(ngModel)]="ProductData.Id" >
+        </div>
+  </div>
+  <div class="col-lg-4">
+      <div class="form-group">
+          <label for="ProductName">ProductName:</label>
+          <input type="text" class="form-control" id="ProductName" [(ngModel)]="ProductData.ProductName" >
+        </div>
+  </div>
+  <div class="col-lg-4">
+      <div class="form-group">
+          <label for="SupplierId">SupplierId:</label>
+          <input type="text" class="form-control" id="SupplierId" [(ngModel)]="ProductData.SupplierId" >
+        </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="UnitPrice">UnitPrice:</label>
+            <input type="text" class="form-control" id="UnitPrice" [(ngModel)]="ProductData.UnitPrice" >
+          </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="Package">Package:</label>
+            <input type="text" class="form-control" id="Package" [(ngModel)]="ProductData.Package" >
+          </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label for="IsDiscontinued">IsDiscontinued:</label>
+            <input type="text" class="form-control" id="IsDiscontinued" [(ngModel)]="ProductData.IsDiscontinued" >
+          </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 text-center">  <button type="submit" class="btn btn-primary" (click)="OnSubmitClicked()" >Submit</button></div>
+</div>
+</div>
+`
