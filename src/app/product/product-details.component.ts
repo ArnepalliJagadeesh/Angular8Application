@@ -11,9 +11,11 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private prodService:ProductServiceService) { }
 cols: any[] = <any[]>[];
   ProductDetails: product[] = <product[]>[];
+  ProductData: product = <product>{};
+  SelectedProduct: product = <product>{};
+  isShowLoader:boolean = false;
   Name:string ="Jagadeesh";
   ngOnInit() {
-// Id] ,[ProductName] ,[SupplierId] ,[UnitPrice] ,[Package] ,[IsDiscontinued -->
     this.cols = [
       { field: 'Id', header: 'ID' },
       { field: 'ProductName', header: 'Product Name' },
@@ -22,6 +24,7 @@ cols: any[] = <any[]>[];
       { field: 'Package', header: 'Package' },
       { field: 'IsDiscontinued', header: 'Is Discontinued' }
   ];
+  this.isShowLoader= true;
 
       this.prodService.getallproducts().subscribe(res =>{
             this.ProductDetails = <product[]>res;
@@ -29,7 +32,25 @@ cols: any[] = <any[]>[];
         console.log("An Error Occured while Getting All Products" + err);
       },()=>{
         console.log("Request has Completed for Get All Products");
+        this.isShowLoader =false;
       });
+  }
+
+  Clear(){
+    this.ProductData = <product>{};
+  }
+  Add(){
+    this.prodService.AddProduct(this.ProductData).subscribe(res =>{
+      const issucess = <boolean>res;
+      if(issucess){
+        
+      }
+},err => {
+  console.log("An Error Occured while Getting All Products" + err);
+},()=>{
+  console.log("Request has Completed for Get All Products");
+  this.isShowLoader =false;
+});
   }
 
 }
