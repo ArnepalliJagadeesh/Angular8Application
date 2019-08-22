@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeDetailsComponent } from './employee/employee-details.component';
 import { ProductDetailsComponent } from './product/product-details.component';
+import { MEditComponent } from './ModelPopUps/medit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeDetailsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    MEditComponent
   ],
   imports: [
     BrowserModule,

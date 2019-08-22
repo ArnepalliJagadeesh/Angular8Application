@@ -11,6 +11,7 @@ export class EmployeeDetailsComponent implements OnInit {
   UserName: string = "";
   ProductData: product = <product>{};
   LstNames: string[] = <string[]>[];
+  isShowEditPopUp = false;
   constructor(private prodService: ProductServiceService) { }
 
   ngOnInit() {
@@ -30,7 +31,13 @@ export class EmployeeDetailsComponent implements OnInit {
     this.LstNames.push("Hari");
 
   }
-
+  OnPopEditClick(PopData:any){
+      if(PopData.isSave){
+          console.log(PopData);
+      }else{
+        this.isShowEditPopUp = false;
+      }
+  }
 
   OnSubmitClicked() {
     if (String(this.ProductData.Id) == '') {
